@@ -58,6 +58,14 @@
             color: #6c757d;
             font-size: 12px;
             transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .character-gif img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         .letter-container {
@@ -83,6 +91,14 @@
             font-size: 12px;
             transition: all 0.3s ease;
             cursor: pointer;
+            overflow: hidden;
+        }
+
+        .letter-gif img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
         }
 
         .message-text {
@@ -247,7 +263,7 @@
         <div id="scene1" class="scene">
             <div class="character-container">
                 <div class="character-gif" id="catGif">
-                    [แมวทักทาย GIF]
+                    <img src="cat-greeting.gif" alt="แมวทักทาย" id="catImage1">
                 </div>
             </div>
             <div class="message-text" id="greeting">
@@ -264,7 +280,7 @@
         <div id="scene2" class="scene hidden">
             <div class="character-container">
                 <div class="character-gif" id="catGif2">
-                    [แมวพูด → แมว idle GIF]
+                    <img src="cat-idle.gif" alt="แมว idle" id="catImage2">
                 </div>
             </div>
             <div class="message-text" id="announcement">
@@ -280,7 +296,7 @@
         <div id="scene3" class="scene hidden">
             <div class="letter-container">
                 <div class="letter-gif" id="letterGif">
-                    [จดหมาย GIF]
+                    <img src="letter-closed.gif" alt="จดหมาย" id="letterImage">
                 </div>
             </div>
             <button class="button open-letter" id="openLetterBtn">เปิดอ่าน</button>
@@ -341,25 +357,29 @@
         }
 
         function simulateCatAnimation(element, duration = 2000) {
-            // Simulate cat talking animation
-            element.style.backgroundColor = '#ffeaa7';
-            element.textContent = '[แมวกำลังพูด...]';
-            
-            setTimeout(() => {
-                element.style.backgroundColor = '#e9ecef';
-                element.textContent = '[แมว idle GIF]';
-            }, duration);
+            const img = element.querySelector('img');
+            if (img) {
+                // เปลี่ยนเป็น GIF แมวพูด
+                img.src = 'cat-talking.gif';
+                
+                setTimeout(() => {
+                    // เปลี่ยนกลับเป็น GIF แมว idle
+                    img.src = 'cat-idle.gif';
+                }, duration);
+            }
         }
 
         function simulateLetterAnimation() {
-            const letterGif = document.getElementById('letterGif');
-            letterGif.style.backgroundColor = '#fff3cd';
-            letterGif.textContent = '[จดหมายกำลังเปิด...]';
-            
-            setTimeout(() => {
-                letterGif.style.backgroundColor = '#f8f6f0';
-                letterGif.textContent = '[จดหมายเปิดแล้ว]';
-            }, 1500);
+            const letterImg = document.getElementById('letterImage');
+            if (letterImg) {
+                // เปลี่ยนเป็น GIF จดหมายกำลังเปิด
+                letterImg.src = 'letter-opening.gif';
+                
+                setTimeout(() => {
+                    // เปลี่ยนเป็น GIF จดหมายเปิดแล้ว
+                    letterImg.src = 'letter-opened.gif';
+                }, 1500);
+            }
         }
 
         // Event listeners
