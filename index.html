@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAIN</title>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+    <div class="content">
+        <article style="width: 80%;">
+            <p><h2>ตัวอักษรพิเศษ &--;</h2></p>
+            <style>
+                #special-char{
+                    border: 1px solid black; 
+                    width: 80%;
+                }
+
+                #special-char tr, th, td{
+                    border: 1px solid black; 
+                    padding-inline: 10px;
+                }
+
+                #list{
+                    border: 1px solid black; 
+                    width: 80%;
+                }
+            </style>
+            <table id="special-char">
+                <tr>
+                    <th colspan="2" style="background: #AAA080;">Special Char & Symbols</th>
+                </tr>
+                <tr>
+                    <th style="background: #AAA080; width: 30%;">Special Character</th>
+                    <th style="background: #AAA080;">Entity Name</th>
+                </tr>
+                <tr>
+                    <td>&amp;</td>
+                    <td>amp</td>
+                </tr>
+                <tr>
+                    <td>&lowast;</td>
+                    <td>asterisk</td>
+                </tr>
+                <tr>
+                    <td>&cent;</td>
+                    <td>cent</td>
+                </tr>
+                <tr>
+                    <td>&copy;</td>
+                    <td>copyright</td>
+                </tr>
+                <tr>
+                    <td>&frac12;</td>
+                    <td>fraction 1/2</td>
+                </tr>
+                <tr>
+                    <td>&gt;</td>
+                    <td>greater than</td>
+                </tr>
+                <tr>
+                    <td>&lt;</td>
+                    <td>lower than</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>non breaking space</td>
+                </tr>
+                <tr>
+                    <td>&quot;</td>
+                    <td>quotation</td>
+                </tr>
+                <tr>
+                    <td>&reg;</td>
+                    <td>registration</td>
+                </tr>
+                <tr>
+                    <td>&trade;</td>
+                    <td>trademark</td>
+                </tr>
+            </table>
+
+            <p><h2>รายการ list</h2></p>
+            <table id="list">
+                <tr>
+                    <td style="width: 20%; background: #AAA080; ">UL List</td>
+                    <td colspan="2">
+                        <ul type="square">Square
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </td>
+                    <td colspan="2">
+                        <ul type="disc">Disc
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </td>
+                    <td colspan="2">
+                        <ul type="circle">Circle
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background: #AAA080">OL List</td>
+                    <td>
+                        <ol type="1">1
+                            <li></li>
+                            <li></li>
+                        </ol>
+                    </td>
+                    <td>
+                        <ol type="a">a
+                            <li></li>
+                            <li></li>
+                        </ol>
+                    </td>
+                    <td>
+                        <ol type="A">A
+                            <li></li>
+                            <li></li>
+                        </ol>
+                    </td>
+                    <td>
+                        <ol type="i">i
+                            <li></li>
+                            <li></li>
+                        </ol>
+                    </td>
+                    <td>
+                        <ol type="I">I
+                            <li></li>
+                            <li></li>
+                        </ol>
+                    </td>
+                </tr>
+            </table>
+            <p><h2>ลากวัตถุ itemdrop</h2></p>
+            <img src="pic.jpg" draggable="true" style="width: 20%;">
+            <div dropzone="move" style="width: 200px; height: 100px; border: 2px dashed #999;">ลากวัตถุมาวางไว้ที่นี่</div>
+        
+            <p><h2>ตรวจคำผิด</h2></p>
+            <textarea spellcheck="true">ลองพิมพ์ภาษาอังกฤษผิดๆ ดูครับ เบราว์เซอร์จะขึ้นขีดเส้นใต้สีแดง</textarea>
+            
+            <p><h2>Input</h2></p>
+            <div style="justify-content:space-between; display: flex;">
+                <div>
+                    <p>search</p>
+                    <input type="search" spellcheck="false" placeholder="ไม่ต้องตรวจตัวสะกดที่นี่">
+                    <p>color</p>
+                    <input type="color" name="" id="">
+                    <p>number</p>
+                    <input type="number" name="" id="">
+                    <p>tel</p>
+                    <input type="tel" name="" id="">
+                    <p>email</p>
+                    <input type="email" name="" id="">
+                    <p>url</p>
+                    <input type="url" name="" id="">
+                </div>
+                <div>
+                    <p>range</p>
+                    <input type="range" name="" id="">
+                    <p>date</p>
+                    <input type="date" name="" id="">
+                    <p>time</p>
+                    <input type="time" name="" id="">
+                    <p>month</p>
+                    <input type="month" name="" id="">
+                    <p>week</p>
+                    <input type="week" name="" id="">
+                    <p>datetime local</p>
+                    <input type="datetime-local" name="" id="">
+                </div>
+                <div></div>
+                <div></div>
+                
+            </div>
+            
+        </article>
+        <aside style="width: 20%;">
+            <img src="sponser.png" alt="" style="width: 100%;">
+            <img src="sponser2.jpg" alt="" style="width: 100%;">
+            <img src="sponser.png" alt="" style="width: 100%;">
+            <img src="sponser2.jpg" alt="" style="width: 100%;">
+            <img src="sponser.png" alt="" style="width: 100%;">
+            <img src="sponser2.jpg" alt="" style="width: 100%;">
+        </aside>
+    </div>
+
+    <footer><center>footer</center></footer>
+    <script src="script.js"></script>
+</body>
+</html>

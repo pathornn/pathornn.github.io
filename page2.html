@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAIN</title>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+    <div class="content">
+        <article style="width: 80%;">
+            <p><h2>Attribute Selectors (เลือกตามคุณสมบัติ)</h2></p>
+            <p>start with (^=)</p>
+            <p>https ปลอดภัย (สีเขียว)</p>
+            <ul>
+                <li><a href="https://www.youtube.com/">YOUTUBE</a></li>
+                <li><a href="https://www.instagram.com/">INSTRAGRAM</a></li>
+            </ul>
+            <p>end with ($=)</p>
+            <p>ลงท้ายด้วย pdf สีแดง</p>
+            <ul>
+                <li><a href="files.pdf">files.pdf</a></li>
+                <li><a href="files.png">files.png</a></li>
+            </ul>
+            <p>contain (*=)</p>
+            <p>มีคำว่า love อยู่ (ไฟล์นี้ชื่อว่า iloveyou.jpg ให้ border = dash)</p>
+            <ul>
+                <img src="iloveyou.jpg" alt="" style="width: 30%;">
+                <img src="pic.jpg" alt="" style="width: 30%;">
+            </ul>
+            
+            <p><h2>Target Selector</h2></p>
+
+            <div>
+                <a href="#1">select me!</a>
+            </div>
+
+            <p><h2>Structural Selector</h2></p>
+            <p id="ol2">เลือกตัวแรก (:first-child)</p>
+            <ol id="ol2">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+            <p>เลือกเลขคู่ (nth-child(even))</p>
+            <ol id="ol1" type="A">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+            <p>เลือกทุกตัวที่ 3n+2 (:nth-child(3n+2))</p>
+            <ol id="ol3" type="I">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+
+            <p><h2>การตกแต่งข้อความและสี (Text & Styling)</h2></p>
+            <p>justify</p>
+            <div id="just">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium illum sunt ipsa minus rem minima quidem ad recusandae odit. Provident maxime quos laudantium dignissimos distinctio sit laboriosam atque beatae, saepe nostrum asperiores pariatur neque debitis rem nulla? Accusantium sequi neque dolorem, nam repudiandae quo laudantium similique cumque totam. Earum, distinctio!</div>
+            <p>Transformation UPPERCASE</p>
+            <p id="upper">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque impedit, quae, mollitia vero quidem molestiae sunt animi at ducimus hic illo esse minima enim inventore necessitatibus nisi ipsum. Ducimus quidem rem commodi officia earum, maxime quo enim recusandae velit vitae delectus incidunt voluptatem! Sunt, inventore ratione? Distinctio odit quisquam itaque!</p>
+            <div id="grad">GRADIENT</div>
+
+            <p><h2>Responsive Design</h2></p>
+            <p>media width=720px จะเป็นสีเขียว <br>แต่ถ้ามากกว่า จะเป็นสีแดง</p>
+            <div id="res">RES</div>
+        </article>
+        <aside style="width: 20%;">
+            <img src="sponser.png" alt="" style="width: 100%;">
+            <img src="sponser2.jpg" alt="" style="width: 100%;">
+            <img src="sponser.png" alt="" style="width: 100%;">
+            <img src="sponser2.jpg" alt="" style="width: 100%;">
+            <img src="sponser.png" alt="" style="width: 100%;">
+            <img src="sponser2.jpg" alt="" style="width: 100%;">
+        </aside>
+    </div>
+
+    <footer><center>footer</center></footer>
+    <script src="script.js"></script>
+</body>
+</html>

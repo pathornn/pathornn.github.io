@@ -1,0 +1,166 @@
+body{
+    margin: 0;
+    background-color: #1C1C1D;
+    color: #FFFFFF;
+    font-family: serif;
+}
+
+a{
+    color: #FFFFFF ;
+    text-decoration: none;
+}
+
+a[href^="https"]{
+    color: green;
+}
+
+a[href$=".pdf"]{
+    color: red;
+}
+
+img[src*="love"]{
+    border: 10px dashed;
+}
+
+a:hover{
+    color:#FFFFFF;
+}
+
+header, footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #252728;
+    padding: 1%;
+    color: #FFFFFF;
+    
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    min-height: 3px;
+    max-height: 5px;
+    align-items: center;
+    border-bottom: 1px solid #4D5156;
+    background-color: #252728;
+    padding: 1%;
+    color: #FFFFFF;
+}
+
+nav div{
+    margin-inline: 1%;
+}
+
+.logo{
+    width: 20%;
+    padding: 1%;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.search-bar{
+    width: 60%;
+    min-height: 10px;
+    max-height: 0.5em;
+    padding: 1%; 
+    border-radius: 20px; 
+    background-color: #4D5156;
+    display: flex;
+}
+
+.search-bar input{
+    width: 100%;
+    height: 1em;
+    background: none;
+    border: 0px;
+    outline: none;
+    position: absolute;
+}
+
+.contact{
+    width: 20%;
+    padding: 1%;
+    margin-right: 1%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.contact img{
+    width: 2em;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.content{
+    display: flex;
+}
+
+article{
+    padding: 2%;
+    width: 70%;
+    display: block;
+}
+
+aside{
+    width: 30%;
+}
+
+#ol1 li:nth-child(even){
+    background-color: yellow;
+}
+
+#ol2 li:first-child{
+    background-color: red;
+}
+
+#ol3 li:nth-child(3n+2){
+    background-color: blue;
+}
+
+#li1 li:nth-child(3n){
+    background-color: wheat;
+}
+
+#just{
+    width: 100%;
+    color: #4D5156;
+    text-align: justify;
+
+}
+
+#upper{
+    color: #4D5156;
+    text-transform: uppercase;
+}
+
+#grad {
+    min-width: 10px;
+    min-height: 10px;
+    max-width: 40%;
+    max-height: 40%;
+    background: linear-gradient(45deg,#ff0000, #300766);
+    border: 1px solid;
+}
+
+@media screen and (max-width:720px) {
+    #res{
+        min-width: 10px;
+        min-height: 10px;
+        max-width: 40%;
+        max-height: 40%;
+        background-color: green;
+        border: 1px solid;
+    }
+}
+@media screen and (min-width: 720px){
+    #res{
+        min-width: 10px;
+        min-height: 10px;
+        max-width: 40%;
+        max-height: 40%;
+        background-color: red;
+        border: 1px solid;
+    }
+}
