@@ -1,34 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import BaseMap from './components/BaseMap'
+import Search from './components/Search'
+import Logo from './components/Logo'
+import GoogleMap from './components/GoogleMap'
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='relative h-screen w-full overflow-hidden bg-slate-50'>
+      
+      {/* layer 0 เป็นพื้นหลังแผนที่ leaflet */}
+      <div className='absolute inset-0 z-0 flex items-center justify-center'>
+        <BaseMap />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+
+      {/* layer 1 เป็นพื้นหลังแผนที่ google map */}
+      <div className='hidden absolute inset-0 z-0 items-center justify-center'>
+        <GoogleMap />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+      {/* layer 2 สำหรับแสดงโลโก้  */}
+      <div className='absolute inset-0 z-2 flex items-baseline-last p-10'>
+        <Logo />
+      </div>
+
+    {/* layer 3 เป็น search สำหรับค้นหา */}
+      <div className='absolute top-0 left-0 right-0 z-3 flex justify-center p-4 md:p-6'>
+        <Search />
+      </div>
+    </div>
   )
 }
 
