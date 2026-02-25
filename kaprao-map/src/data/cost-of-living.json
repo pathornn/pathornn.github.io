@@ -1,0 +1,466 @@
+{
+    "cost_of_living": [
+        {
+            "id": 1,
+            "province": "ราชบุรี",
+            "Minimum_wage": 347,
+            "living expenses":25476
+        },
+        {
+            "id": 2,
+            "province": "สมุทรสาคร",
+            "Minimum_wage": 363,
+            "living expenses":25000
+        },
+        {
+            "id": 3,
+            "province": "สมุทรสงคราม",
+            "Minimum_wage": 351,
+            "living expenses":20000
+        },
+        {
+            "id": 4,
+            "province": "นครปฐม",
+            "Minimum_wage": 363,
+            "living expenses":24500
+        },
+        {
+            "id": 5,
+            "province": "กาญจนบุรี",
+            "Minimum_wage": 345,
+            "living expenses":20500
+        },
+        {
+            "id": 6,
+            "province": "สุพรรณบุรี",
+            "Minimum_wage": 348,
+            "living expenses":20500
+        },
+        {
+            "id": 7,
+            "province": "อ่างทอง",
+            "Minimum_wage": 341,
+            "living expenses":19500
+        },
+        {
+            "id": 8,
+            "province": "สิงห์บุรี",
+            "Minimum_wage": 341,
+            "living expenses":22967
+        },
+        {
+            "id": 9,
+            "province": "พระนครศรีอยุธยา",
+            "Minimum_wage": 350,
+            "living expenses":24684
+        },
+        {
+            "id": 10,
+            "province": "ชัยนาท",
+            "Minimum_wage": 341,
+            "living expenses":18500
+        },
+        {
+            "id": 11,
+            "province": "ลพบุรี",
+            "Minimum_wage": 349,
+            "living expenses":20500
+        },
+        {
+            "id": 12,
+            "province": "อุทัยธานี",
+            "Minimum_wage": 340,
+            "living expenses":17000
+        },
+        {
+            "id": 13,
+            "province": "กรุงเทพมหานคร",
+            "Minimum_wage": 363,
+            "living expenses":32736
+        },
+        {
+            "id": 14,
+            "province": "นนทบุรี",
+            "Minimum_wage": 363,
+            "living expenses":33500
+        },
+        {
+            "id": 15,
+            "province": "ปทุมธานี",
+            "Minimum_wage": 363,
+            "living expenses":36003
+        },
+        {
+            "id": 16,
+            "province": "สมุทรปราการ",
+            "Minimum_wage": 363,
+            "living expenses":28500
+        },
+        {
+            "id": 17,
+            "province": "ฉะเชิงเทรา",
+            "Minimum_wage": 350,
+            "living expenses":24500
+        },
+        {
+            "id": 18,
+            "province": "ชลบุรี",
+            "Minimum_wage": 361,
+            "living expenses":27129
+        },
+        {
+            "id": 19,
+            "province": "ระยอง",
+            "Minimum_wage": 361,
+            "living expenses":27928
+        },
+        {
+            "id": 20,
+            "province": "จันทบุรี",
+            "Minimum_wage": 345,
+            "living expenses":25374
+        },
+        {
+            "id": 21,
+            "province": "ตราด",
+            "Minimum_wage": 347,
+            "living expenses":21000
+        },
+        {
+            "id": 22,
+            "province": "นครสวรรค์",
+            "Minimum_wage": 343,
+            "living expenses":19000
+        },
+        {
+            "id": 23,
+            "province": "พิจิตร",
+            "Minimum_wage": 340,
+            "living expenses":16500
+        },
+        {
+            "id": 24,
+            "province": "กำแพงเพชร",
+            "Minimum_wage": 340,
+            "living expenses":17500
+        },
+        {
+            "id": 25,
+            "province": "เพชรบูรณ์",
+            "Minimum_wage": 342,
+            "living expenses":17500
+        },
+        {
+            "id": 26,
+            "province": "พิษณุโลก",
+            "Minimum_wage": 345,
+            "living expenses":19500
+        },
+        {
+            "id": 27,
+            "province": "ตาก",
+            "Minimum_wage": 345,
+            "living expenses":16500
+        },
+        {
+            "id": 28,
+            "province": "สุโขทัย",
+            "Minimum_wage": 340,
+            "living expenses":18211
+        },
+        {
+            "id": 29,
+            "province": "อุตรดิตถ์",
+            "Minimum_wage": 340,
+            "living expenses":16500
+        },
+        {
+            "id": 30,
+            "province": "แพร่",
+            "Minimum_wage": 338,
+            "living expenses":15500
+        },
+        {
+            "id": 31,
+            "province": "น่าน",
+            "Minimum_wage": 338,
+            "living expenses":16000
+        },
+        {
+            "id": 32,
+            "province": "ลำปาง",
+            "Minimum_wage": 340,
+            "living expenses":16500
+        },
+        {
+            "id": 33,
+            "province": "ลำพูน",
+            "Minimum_wage": 343,
+            "living expenses":16000
+        },
+        {
+            "id": 34,
+            "province": "เชียงใหม่",
+            "Minimum_wage": 350,
+            "living expenses":22000
+        },
+        {
+            "id": 35,
+            "province": "แม่ฮ่องสอน",
+            "Minimum_wage": 340,
+            "living expenses":14000
+        },
+        {
+            "id": 36,
+            "province": "เชียงราย",
+            "Minimum_wage": 345,
+            "living expenses":13341
+        },
+        {
+            "id": 37,
+            "province": "ปราจีนบุรี",
+            "Minimum_wage": 350,
+            "living expenses":21500
+        },
+        {
+            "id": 38,
+            "province": "สระแก้ว",
+            "Minimum_wage": 345,
+            "living expenses":18500
+        },
+        {
+            "id": 39,
+            "province": "นครราชสีมา",
+            "Minimum_wage": 352,
+            "living expenses":23000
+        },
+        {
+            "id": 40,
+            "province": "บุรีรัมย์",
+            "Minimum_wage": 345,
+            "living expenses":17000
+        },
+        {
+            "id": 41,
+            "province": "สุรินทร์",
+            "Minimum_wage": 344,
+            "living expenses":16500
+        },
+        {
+            "id": 42,
+            "province": "ศรีสะเกษ",
+            "Minimum_wage": 340,
+            "living expenses":15500
+        },
+        {
+            "id": 43,
+            "province": "อุบลราชธานี",
+            "Minimum_wage": 345,
+            "living expenses":19500
+        },
+        {
+            "id": 44,
+            "province": "ชัยภูมิ",
+            "Minimum_wage": 341,
+            "living expenses":17473
+        },
+        {
+            "id": 45,
+            "province": "ขอนแก่น",
+            "Minimum_wage": 350,
+            "living expenses":21000
+        },
+        {
+            "id": 46,
+            "province": "มหาสารคาม",
+            "Minimum_wage": 340,
+            "living expenses":17500
+        },
+        {
+            "id": 47,
+            "province": "ร้อยเอ็ด",
+            "Minimum_wage": 342,
+            "living expenses":19675
+        },
+        {
+            "id": 48,
+            "province": "ยโสธร",
+            "Minimum_wage": 343,
+            "living expenses":16000
+        },
+        {
+            "id": 49,
+            "province": "อำนาจเจริญ",
+            "Minimum_wage": 340,
+            "living expenses":17000
+        },
+        {
+            "id": 50,
+            "province": "เลย",
+            "Minimum_wage": 340,
+            "living expenses":17000
+        },
+        {
+            "id": 51,
+            "province": "หนองบัวลำภู",
+            "Minimum_wage": 340,
+            "living expenses":15500
+        },
+        {
+            "id": 52,
+            "province": "อุดรธานี",
+            "Minimum_wage": 340,
+            "living expenses":19500
+        },
+        {
+            "id": 53,
+            "province": "สกลนคร",
+            "Minimum_wage": 345,
+            "living expenses":16500
+        },
+        {
+            "id": 54,
+            "province": "นครพนม",
+            "Minimum_wage": 345,
+            "living expenses":16500
+        },
+        {
+            "id": 55,
+            "province": "หนองคาย",
+            "Minimum_wage": 348,
+            "living expenses":18000
+        },
+        {
+            "id": 56,
+            "province": "บึงกาฬ",
+            "Minimum_wage": 342,
+            "living expenses":17500
+        },
+        {
+            "id": 57,
+            "province": "มุกดาหาร",
+            "Minimum_wage": 345,
+            "living expenses":17000
+        },
+        {
+            "id": 58,
+            "province": "นครนายก",
+            "Minimum_wage": 348,
+            "living expenses":20000
+        },
+        {
+            "id": 59,
+            "province": "สระบุรี",
+            "Minimum_wage": 350,
+            "living expenses":25607
+        },
+        {
+            "id": 60,
+            "province": "เพชรบุรี",
+            "Minimum_wage": 344,
+            "living expenses":21000
+        },
+        {
+            "id": 61,
+            "province": "ประจวบคีรีขันธ์",
+            "Minimum_wage": 345,
+            "living expenses":21500
+        },
+        {
+            "id": 62,
+            "province": "ชุมพร",
+            "Minimum_wage": 344,
+            "living expenses":23540
+        },
+        {
+            "id": 63,
+            "province": "ระนอง",
+            "Minimum_wage": 340,
+            "living expenses":19500
+        },
+        {
+            "id": 64,
+            "province": "สุราษฎร์ธานี",
+            "Minimum_wage": 345,
+            "living expenses":24991
+        },
+        {
+            "id": 65,
+            "province": "พังงา",
+            "Minimum_wage": 345,
+            "living expenses":22000
+        },
+        {
+            "id": 66,
+            "province": "ภูเก็ต",
+            "Minimum_wage": 370,
+            "living expenses":33150
+        },
+        {
+            "id": 67,
+            "province": "กระบี่",
+            "Minimum_wage": 347,
+            "living expenses":29073
+        },
+        {
+            "id": 68,
+            "province": "นครศรีธรรมราช",
+            "Minimum_wage": 342,
+            "living expenses":21500
+        },
+        {
+            "id": 69,
+            "province": "ตรัง",
+            "Minimum_wage": 338,
+            "living expenses":21500
+        },
+        {
+            "id": 70,
+            "province": "พัทลุง",
+            "Minimum_wage": 341,
+            "living expenses":19500
+        },
+        {
+            "id": 71,
+            "province": "สตูล",
+            "Minimum_wage": 340,
+            "living expenses":18500
+        },
+        {
+            "id": 72,
+            "province": "สงขลา",
+            "Minimum_wage": 345,
+            "living expenses":22500
+        },
+        {
+            "id": 73,
+            "province": "ปัตตานี",
+            "Minimum_wage": 330,
+            "living expenses":18000
+        },
+        {
+            "id": 74,
+            "province": "ยะลา",
+            "Minimum_wage": 330,
+            "living expenses":19030
+        },
+        {
+            "id": 75,
+            "province": "นราธิวาส",
+            "Minimum_wage": 330,
+            "living expenses":17638
+        },
+        {
+            "id": 76,
+            "province": "กาฬสินธุ์",
+            "Minimum_wage": 342,
+            "living expenses":16000
+        },
+        {
+            "id": 77,
+            "province": "พะเยา",
+            "Minimum_wage": 338,
+            "living expenses":15000
+        }
+    ]
+}
