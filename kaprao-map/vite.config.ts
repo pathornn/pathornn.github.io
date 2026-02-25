@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/kaprao-map/',
+  base: '/kaprao-map',
 })
