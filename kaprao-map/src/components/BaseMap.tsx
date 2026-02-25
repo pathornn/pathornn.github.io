@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import '../App.css'
 
 import { MapContainer, GeoJSON } from 'react-leaflet' // เอา TileLayer ออก
@@ -34,7 +33,7 @@ function BaseMap() {
 
     provinceInfo.store.forEach(store => {
       // 3. แก้บั๊กชื่อฟิลด์ซ้ำ และดึงราคาออกมา
-      const rawPrice = store.prices || store.prices || store.Prices || store.Price || null; 
+      const rawPrice = store.prices || store.prices || store.prices || store.prices || null; 
       
       if (rawPrice) {
         // 4. แก้ปัญหาข้อมูลเป็นช่วงราคา (เช่น "40-60" -> ให้ดึงเลขแรกมาคือ 40)
@@ -76,7 +75,6 @@ function BaseMap() {
     const provinceEN = feature.properties.NAME_1;
     // ใช้ Fallback เผื่อแปลชื่อไม่ได้ ให้เป็นชื่ออังกฤษไว้ก่อน
     const provinceTH = provinceMapping[provinceEN] || provinceEN; 
-    console.log("ชื่อจังหวัดที่กำลังหา:", provinceTH);
     const avgPrice = getAveragePrice(provinceTH);
 
     // เอาไว้เช็กใน Console (กด F12) ว่าจังหวัดไหนได้ราคาเท่าไหร่ สีอะไร
