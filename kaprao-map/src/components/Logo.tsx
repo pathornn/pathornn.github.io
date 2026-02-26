@@ -2,7 +2,9 @@ import '../App.css'
 
 function Logo() {
   return (
-    <img src="./public/logo1.svg" alt=""/>
+    <>
+      <img src="kaprao-map/logo1.svg" alt=""/>
+    </>
   )
 }
 
