@@ -11,6 +11,7 @@ interface SearchProps {
   setView: (view: 'list' | 'province') => void;
   selectedProvince: string | null;
   setSelectedProvince: (province: string | null) => void;
+  onStoreSelect: (embedLink: string) => void;
 }
 
 function Search({
@@ -19,7 +20,8 @@ function Search({
   view,
   setView,
   selectedProvince,
-  setSelectedProvince
+  setSelectedProvince,
+  onStoreSelect
 }: SearchProps) {
 
   // เก็บ Search Query ไว้ที่เดิมเพราะใช้แค่ในหน้านี้
@@ -63,15 +65,30 @@ function Search({
   const livingExpense = provinceCostData ? provinceCostData['living expenses'] : 0;
   const minimumWage = provinceCostData ? provinceCostData.Minimum_wage : 0;
 
-  // ปรับการทำงานของฟังก์ชันให้เรียกผ่าน Setter ที่ได้จาก Props
+  // ตรวจสอบว่าลิงก์ถูกต้องหรือไม่
+  const getValidUrl = (locationData: string) => {
+    if (!locationData) return null;
+    const dataStr = String(locationData).trim();
+    return dataStr.startsWith('http') ? dataStr : null;
+  };
+
+  // อัปเดตเมื่อคลิกร้านค้า
+  const handleStoreClick = (storeName: string, provinceName: string, locationString: string) => {
+    let url = getValidUrl(locationString);
+    
+    if (!url) {
+      console.log(`[Auto-Generate] สร้างลิงก์ค้นหาให้: ${storeName}`);
+      const query = encodeURIComponent(`${storeName} ${provinceName}`);
+      url = `http://googleusercontent.com/maps.google.com/search?q=${query}&output=embed`;
+    }
+
+    onStoreSelect(url); 
+    handleCloseSearch(); 
+  };
+
   const handleProvinceClick = (provinceName: string) => {
     setSelectedProvince(provinceName);
     setView('province');
-  };
-
-  const handleStoreClick = (storeName: string, provinceName: string) => {
-    console.log(`[Action] ปิด Search และเปิด StoreDetails: ${storeName}`);
-    handleCloseSearch(); 
   };
 
   const handleBackToList = () => {
@@ -88,7 +105,7 @@ function Search({
   return (
     <div className='w-full max-w-2xl relative flex flex-col gap-2 z-50'>
 
-        {/* -------------- Background ----------------- */}
+        {/* -------------- Background กลับมาทำงานได้ปกติแล้ว ----------------- */}
         <div 
           className={`
               fixed inset-0 bg-white/50 backdrop-blur-sm z-40 transition-opacity duration-300 ease-out
@@ -190,7 +207,7 @@ function Search({
                               {filteredStores.map((store, index) => (
                               <button
                                   key={`store-${index}`}
-                                  onClick={() => handleStoreClick(store.name, store.provinceName)}
+                                  onClick={() => handleStoreClick(store.name, store.provinceName, store.location)}
                                   className="text-left px-4 py-3 hover:bg-[#DFDFDF] rounded-2xl transition-all flex flex-col border border-transparent"
                               >
                                   <span className="text-slate-800 font-bold">{store.name}</span>
@@ -255,7 +272,7 @@ function Search({
                           {provinceStores.map((store, index) => (
                             <button
                                 key={`store-detail-${index}`}
-                                onClick={() => handleStoreClick(store.name, store.provinceName)}
+                                onClick={() => handleStoreClick(store.name, store.provinceName, store.location)}
                                 className="text-left p-4 hover:bg-[#DFDFDF] bg-slate-50 rounded-2xl transition-all flex justify-between items-center group border border-slate-100 hover:border-transparent"
                             >
                                 <div className="flex flex-col">
