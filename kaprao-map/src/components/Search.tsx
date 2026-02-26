@@ -24,29 +24,31 @@ function Search({
   onStoreSelect
 }: SearchProps) {
 
-  // เก็บ Search Query ไว้ที่เดิมเพราะใช้แค่ในหน้านี้
+  // เก็บ Search Query 
   const [searchQuery, setSearchQuery] = useState('');
 
+  // ดึงรายชื่อจังหวัดและร้านค้ามาเรียงลำดับตัวอักษร
   const provinces = kapraoData.data
     .map(item => item.province)
     .filter(Boolean)
     .sort((a, b) => a.localeCompare(b, 'th')); 
-
   const stores = kapraoData.data.flatMap(item => 
     item.store ? item.store.map(store => ({ ...store, provinceName: item.province })) : []
   ).sort((a, b) => a.name.localeCompare(b.name, 'th'));
 
+  // กรองข้อมูลจังหวัดและร้านอาหาร ให้เหลือเฉพาะที่ตรงกับ searchQuery ที่ผู้ใช้พิมพ์
   const filteredProvinces = provinces.filter(prov => 
     prov.includes(searchQuery)
   );
-
   const filteredStores = stores.filter(store => 
     store.name.includes(searchQuery) || 
     store.provinceName.includes(searchQuery) 
   );
 
+  // ดึงข้อมูลร้านอาหารเฉพาะ "จังหวัดที่ผู้ใช้กำลังเลือกดูอยู่"
   const provinceStores = stores.filter(s => s.provinceName === selectedProvince);
   
+
   const getAveragePrice = () => {
     if (provinceStores.length === 0) return 0;
     let total = 0;
@@ -86,16 +88,19 @@ function Search({
     handleCloseSearch(); 
   };
 
+  // อัปเดตเมื่อคลิกจังหวัด
   const handleProvinceClick = (provinceName: string) => {
     setSelectedProvince(provinceName);
     setView('province');
   };
 
+  // กลับไปยัง list หน้าแรก
   const handleBackToList = () => {
     setView('list');
     setSelectedProvince(null);
   };
 
+  // ปิดหน้าต่าง Search
   const handleCloseSearch = () => {
     setIsListOpen(false);
     setSearchQuery(''); 
