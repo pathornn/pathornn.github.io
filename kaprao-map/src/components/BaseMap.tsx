@@ -57,6 +57,7 @@ function BaseMap({ selectedProvince, onProvinceClick }: BaseMapProps) {
   }, [selectedProvince]); // โค้ดนี้จะทำงานทุกครั้งที่ selectedProvince เปลี่ยน
   // ----------------------------------------------------
 
+  // คำนวณราคาเฉลี่ย
   function getAveragePrice(provinceNameTH: string): number {
     if (!provinceNameTH) return 0;
     const searchName = provinceNameTH.trim();
@@ -82,6 +83,7 @@ function BaseMap({ selectedProvince, onProvinceClick }: BaseMapProps) {
     return validStoresCount > 0 ? Math.round(totalPrice / validStoresCount) : 0;
   }
 
+  // กำหนดสี
   function getColor(avgPrice: number) {
     if (avgPrice > 60) return "#800026"; 
     else if (avgPrice > 50) return "#FD8D3C"; 
@@ -89,6 +91,8 @@ function BaseMap({ selectedProvince, onProvinceClick }: BaseMapProps) {
     else return "#E2E8F0"; 
   }
 
+
+  // นำมาใช้งานลงสีจังหวัด
   function style(feature: any) {
     const provinceEN = feature.properties.NAME_1;
     const provinceTH = provinceMapping[provinceEN] || provinceEN; 
@@ -103,6 +107,7 @@ function BaseMap({ selectedProvince, onProvinceClick }: BaseMapProps) {
     }
   }
 
+  // feature การแสดงผลเพิ่มเติม
   function onEachFeature(feature: any, layer: any){
     const provinceEN = feature.properties.NAME_1;
     const provinceTH = provinceMapping[provinceEN] || provinceEN;

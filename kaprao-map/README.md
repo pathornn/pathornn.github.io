@@ -1,73 +1,106 @@
-# React + TypeScript + Vite
+# คู่มือการทำงาน
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Package
+- React + TypeScript + Vite ในการทำงานเป็นหลัก
+- TailwindCSS ในการตกแต่ง
+- Leaflet API สำหรับแมพแสดงสี
+- Google Embed API สำหรับแสดงสถานที่
+- JSON เก็บข้อมูล
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## การทำงานเบื้องต้น
+1. เรียกใช้ index.html
+2. index.html จะเรียก main.tsx ผ่าน
+```html
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+</body>
+```
+3. main.tsx เรียก App.tsx ผ่าน
+```tsx
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+```
+4. App.tsx จะทำหน้าที่ดึง Component ต่างๆมาแสดงในเว็บ !สำคัญมากๆ!
+โดยแต่ละ Component จะอยู่ใน 'src/components'
+5. แต่ละ Component จะแบ่งกันอยู่ในแต่ละ Layer เพื่อทับซ้อนกัน
 
-## React Compiler
+## Components
+> ### Logo.tsx
+- แสดง logo
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+> ### BaseMap.tsx
+- ดึงข้อมูลจาก 'data/cost-of-living.json' แล้วนำมาหาค่าเฉลี่ยของแต่ละจังหวัด
+```tsx
+function getAveragePrice(provinceNameTH: string): number{}
+```
+- กำหนดสีแต่ละจังหวัดเป็น 3 ช่วง
+```tsx
+function getColor(avgPrice: number){}
+```
+- นำ function getAveragePrice() และ getColor() มาใช้งานเพื่อกำหนดแต่ละจังหวัด
+```tsx
+function style(feature: any){}
+```
+- feature การแสดงผลเพิ่มเติม
+```tsx
+function onEachFeature(feature: any, layer: any){
+ layer.on({
+  mouseover: () => {}
+  mouseout: () => {}
+  // ใน click อัพเดท onProvinceClick()
+  click: () => {}
+ })
+}
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- ทำการ RETURN  แผนที่ด้วย LeafletAPI GEOjson
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+> ### Search.tsx
+- Search Props เป็น interface สำหรับนำไปใช้งานต่อ
+```tsx
+interface SearchProps {}
 ```
+- Search สำหรับเก็บคำค้นหาที่ผู้ใช้พิมพ์ โดย implement มาจาก SearchProps
+```tsx
+function Search {
+ // เก็บ Search Query 
+ const [searchQuery, setSearchQuery]
+
+ // ดึงรายชื่อจังหวัดและร้านค้ามาเรียงลำดับตัวอักษร
+ const provinces
+ const stores
+
+ // กรองข้อมูลจังหวัดและร้านอาหาร ให้เหลือเฉพาะที่ตรงกับ searchQuery ที่ผู้ใช้พิมพ์
+ const filteredProvinces
+ const filteredStores
+
+ // ดึงข้อมูลร้านอาหารเฉพาะ "จังหวัดที่ผู้ใช้กำลังเลือกดูอยู่"
+ const provinceStores
+}
+
+ // คำนวณหาราคา "กะเพราเฉลี่ย" ของร้านทั้งหมดในจังหวัดที่เลือก
+ const getAveragePrice
+
+ // ตรวจสอบว่าข้อมูลพิกัด/ตำแหน่งร้าน เป็น URL ที่ถูกต้องหรือไม่
+ const getValidUrl
+
+ // อัปเดตเมื่อคลิกร้านค้า
+ const handleStoreClick
+
+ // อัปเดตเมื่อคลิกจังหวัด
+ const handleProvinceClick
+
+ // กลับไปยัง list หน้าแรก
+ const handleBackToList
+
+ // ปิดหน้าต่าง Search
+ const handleCloseSearch
+```
+
+> ### GoogleMap.tsx
+- รับ Link มาจากการกดร้านค้าใน Search เพื่อมาแสดงผล
