@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบฝึกหัด Computer Network</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f7f6; color: #333; }
+        .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+        h1 { text-align: center; color: #2c3e50; }
+        h2 { color: #34495e; border-bottom: 2px solid #ecf0f1; padding-bottom: 5px; margin-top: 30px; }
+        h3 { color: #16a085; font-size: 1.1em; }
+        input[type="text"] { padding: 4px 8px; border: 1px solid #bdc3c7; border-radius: 4px; text-align: center; margin: 0 4px; }
+        select { padding: 4px 8px; border: 1px solid #bdc3c7; border-radius: 4px; cursor: pointer; margin: 0 4px; }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-bottom: 12px; }
+        .indent { padding-left: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>แบบฝึกหัด Computer Network</h1>
+
+    <h2>1. Ethernet LAN</h2>
+    <h3>1.1 2 ระดับการสื่อสาร</h3>
+    <ul>
+        <li><input type="text" data-answer="Mac address"> - <input type="text" data-answer="Layer 2"> : ใช้สำหรับสื่อสารระหว่างการ์ดแลน NIC เครือข่ายเดียวกัน</li>
+        <li><input type="text" data-answer="IP address"> - <input type="text" data-answer="Layer 3"> : ระบุเส้นทางส่งแพ็กเกจ</li>
+    </ul>
+
+    <h3>1.2 การส่งข้อมูล</h3>
+    <ul>
+        <li><input type="text" data-answer="เครือข่ายเดียวกัน"> ใช้ MAC address ของปลายทาง</li>
+        <li><input type="text" data-answer="ข้ามเครือข่าย"> เครื่องต้นทางส่งข้อมูลไป <input type="text" data-answer="Default Gateway"> โดยใช้ MAC Address ของ Gateway แทน</li>
+    </ul>
+
+    <h3>1.3 การทำงานของ ARP</h3>
+    <ul>
+        <li><input type="text" data-answer="ARP"> หรือ <input type="text" data-answer="Address Resolution Protocol"> ใช้ใน IPv4 เพื่อหาว่า IP ของ Gateway (R1) มี MAC Address อะไร และใช้สร้าง/อัปเดตตารางจับคู่ที่เรียกว่า <input type="text" data-answer="ARP Table"></li>
+        <li>อุปกรณ์จะทำการส่ง <input type="text" data-answer="ARP Request"> (แบบ 
+            <select data-answer="Broadcast">
+                <option value="">--เลือก--</option>
+                <option value="Broadcast">Broadcast</option>
+                <option value="Multicast">Multicast</option>
+                <option value="Unicast">Unicast</option>
+            </select>)
+        </li>
+        <li>อุปกรณ์ปลายทางที่มี IP ตรงกันจะตอบกลับมาด้วย <input type="text" data-answer="ARP Reply"> (แบบ 
+            <select data-answer="Unicast">
+                <option value="">--เลือก--</option>
+                <option value="Broadcast">Broadcast</option>
+                <option value="Multicast">Multicast</option>
+                <option value="Unicast">Unicast</option>
+            </select>)
+        </li>
+        <li>การบรอดแคสต์ ARP มากเกินไปอาจทำให้ประสิทธิภาพเครือข่ายลดลง และอาจเกิดการโจมตีแบบ <input type="text" data-answer="ARP Spoofing"></li>
+    </ul>
+
+    <h3>1.4 การทำงานบน IPv6</h3>
+    <ul>
+        <li><input type="text" data-answer="ICMPv6"> ทำหน้าที่แบบเดียวกับ ARP แต่ใช้สำหรับ IPv6</li>
+        <li>ใช้ข้อความ <input type="text" data-answer="NS"> เรียกว่า <input type="text" data-answer="Neighbor Discovery"> เพื่อหา MAC Address เทียบได้กับ ARP <input type="text" data-answer="Request"> ส่งแบบ 
+            <select data-answer="Multicast">
+                <option value="">--เลือก--</option>
+                <option value="Broadcast">Broadcast</option>
+                <option value="Multicast">Multicast</option>
+                <option value="Unicast">Unicast</option>
+            </select>
+        </li>
+        <li>และ <input type="text" data-answer="NA"> เรียกว่า <input type="text" data-answer="Neighbor Advertisement"> เทียบได้กับ ARP <input type="text" data-answer="Reply"> ส่งกลับมา</li>
+    </ul>
+
+    <h2>2. IPv4 และ Subnet</h2>
+    <h3>2.1 โครงสร้างและการคำนวณ</h3>
+    <ul>
+        <li>IPv4 เป็นชุดตัวเลข <input type="text" data-answer="32"> บิต ที่แบ่งออกเป็น 2 ส่วน คือส่วน <input type="text" data-answer="Network"> และส่วน <input type="text" data-answer="Host"></li>
+        <li><input type="text" data-answer="Subnet Mask"> ใช้เป็นตัวกำหนดว่าส่วนไหนคือ <input type="text" data-answer="Network"> และส่วนไหนคือ <input type="text" data-answer="Host"></li>
+        <li><input type="text" data-answer="prefix"> ใช้/ไว้ เพื่อบอกว่า network มีกี่ bit</li>
+        <li>Prefix ตัวเลขยิ่งมาก (เช่น /30) - Network ยิ่ง 
+            <select data-answer="เล็ก">
+                <option value="">--เลือก--</option>
+                <option value="เล็ก">เล็ก</option>
+                <option value="ใหญ่">ใหญ่</option>
+            </select>
+        </li>
+        <li>Prefix ตัวเลขยิ่งน้อย (เช่น /8) - Network ยิ่ง 
+            <select data-answer="ใหญ่">
+                <option value="">--เลือก--</option>
+                <option value="เล็ก">เล็ก</option>
+                <option value="ใหญ่">ใหญ่</option>
+            </select>
+        </li>
+        <li><input type="text" data-answer="ANDing"> คือการนำ IP Address มาคำนวณทางตรรกะศาสตร์ (AND) กับ <input type="text" data-answer="Subnet Mask"> เพื่อหา Network Address</li>
+        <li>ประเภทของ Address ใน 1 เครือข่ายจะประกอบด้วย <input type="text" data-answer="Network address">, <input type="text" data-answer="Host addresses">, และ <input type="text" data-answer="Broadcast address"></li>
+    </ul>
+
+    <h3>2.2 การคำนวณ IP Address</h3>
+    <ul>
+        <li>จงหา Prefix Length (/) ของ Subnet Mask: 255.255.255.0 <input type="text" data-answer="/24" placeholder="ตอบเป็น / ด้วย"></li>
+        <li>จงหา Prefix Length (/) ของ Subnet Mask: 255.255.248.0 <input type="text" data-answer="/21" placeholder="ตอบเป็น / ด้วย"></li>
+        <li>จงหา Subnet Mask ของ: /27 <input type="text" data-answer="255.255.255.224"></li>
+        <li>Subnet Mask ต่อไปนี้ใช้งานได้หรือไม่? 255.255.255.130 
+            <select data-answer="ใช้งานไม่ได้">
+                <option value="">--เลือก--</option>
+                <option value="ใช้งานได้">ใช้งานได้</option>
+                <option value="ใช้งานไม่ได้">ใช้งานไม่ได้</option>
+            </select>
+        </li>
+    </ul>
+    
+    <div class="indent">
+        <p><strong>กำหนด IP Address คือ 192.168.10.50/24 จงหา:</strong></p>
+        <ul>
+            <li>Network Address (NA): <input type="text" data-answer="192.168.10.0"></li>
+            <li>Broadcast Address (BA): <input type="text" data-answer="192.168.10.255"></li>
+            <li>ช่วงของ IP ที่ใช้งานได้: <input type="text" data-answer="192.168.10.1"> ถึง <input type="text" data-answer="192.168.10.254"></li>
+        </ul>
+
+        <p><strong>กำหนด IP Address คือ 172.16.30.40/28 จงหา:</strong></p>
+        <ul>
+            <li>Network Address (NA): <input type="text" data-answer="172.16.30.32"></li>
+            <li>Broadcast Address (BA): <input type="text" data-answer="172.16.30.47"></li>
+            <li>จำนวนเครื่อง Host: <input type="text" data-answer="14"> เครื่อง</li>
+        </ul>
+
+        <p><strong>กำหนด IP Address คือ 10.20.100.50/18 จงหา:</strong></p>
+        <ul>
+            <li>Network Address (NA): <input type="text" data-answer="10.20.64.0"></li>
+            <li>Broadcast Address (BA): <input type="text" data-answer="10.20.127.255"></li>
+        </ul>
+    </div>
+
+    <h3>2.3 รูปแบบการส่งข้อมูล</h3>
+    <ul>
+        <li><input type="text" data-answer="Unicast">: การส่งข้อมูลจาก 1 เครื่องไปยังอีก 1 เครื่อง (1 to 1)</li>
+        <li><input type="text" data-answer="Broadcast">: การส่งข้อมูลจาก 1 เครื่องไปยังทุกเครื่องในเครือข่าย (1 to All)</li>
+        <li><input type="text" data-answer="Multicast">: การส่งข้อมูลจาก 1 เครื่องไปยังกลุ่มเป้าหมายเฉพาะกลุ่ม (1 to Many)</li>
+    </ul>
+
+    <h3>2.4 ประเภทของ IPv4</h3>
+    <ul>
+        <li><input type="text" data-answer="Public IP">: ไอพีสาธารณะที่สามารถใช้เร้าต์ติ้งบนอินเทอร์เน็ตได้ทั่วโลก</li>
+        <li><input type="text" data-answer="Private IP">: ไอพีส่วนตัวสำหรับใช้ภายในองค์กรเท่านั้น ห้ามนำไปใช้ภายนอก</li>
+        <li><input type="text" data-answer="NAT"> หรือ <input type="text" data-answer="Network Address Translation">: เทคโนโลยีที่ใช้แปลง Private IP ให้เป็น Public IP เพื่อให้ออกอินเทอร์เน็ตได้</li>
+    </ul>
+
+    <div class="indent">
+        <p><strong>เลือกประเภทการใช้งานให้ถูกต้อง:</strong></p>
+        <ul>
+            <li>10.0.0.0/8 : 
+                <select data-answer="ใช้ในองค์กรใหญ่ๆ">
+                    <option value="">--เลือก--</option>
+                    <option value="ใน Router ตามบ้าน">ใน Router ตามบ้าน</option>
+                    <option value="ใช้ในองค์กรใหญ่ๆ">ใช้ในองค์กรใหญ่ๆ</option>
+                    <option value="Localhost">Localhost</option>
+                </select>
+            </li>
+            <li>192.168.0.0/16 : 
+                <select data-answer="ใน Router ตามบ้าน">
+                    <option value="">--เลือก--</option>
+                    <option value="Localhost">Localhost</option>
+                    <option value="ใช้ในองค์กรใหญ่ๆ">ใช้ในองค์กรใหญ่ๆ</option>
+                    <option value="ใน Router ตามบ้าน">ใน Router ตามบ้าน</option>
+                </select>
+            </li>
+            <li>127.0.0.1 : 
+                <select data-answer="Localhost">
+                    <option value="">--เลือก--</option>
+                    <option value="ใช้ในองค์กรใหญ่ๆ">ใช้ในองค์กรใหญ่ๆ</option>
+                    <option value="ใน Router ตามบ้าน">ใน Router ตามบ้าน</option>
+                    <option value="Localhost">Localhost</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+
+    <div class="indent">
+        <p><strong>เติม Class และการใช้งานให้ถูกต้อง:</strong></p>
+        <ul>
+            <li>0 - 127 Class <input type="text" data-answer="A"> : <input type="text" data-answer="สำหรับองค์กรขนาดใหญ่มาก"></li>
+            <li>128 - 191 Class <input type="text" data-answer="B"> : <input type="text" data-answer="สำหรับองค์กรขนาดกลาง"></li>
+            <li>192 - 223 Class <input type="text" data-answer="C"> : <input type="text" data-answer="สำหรับเครือข่ายขนาดเล็ก"></li>
+            <li>224 - 239 Class <input type="text" data-answer="D"> : <input type="text" data-answer="Multicast"></li>
+            <li>240 - 255 Class <input type="text" data-answer="E"> : <input type="text" data-answer="Experimental"></li>
+        </ul>
+    </div>
+
+    <h3>2.5 องค์กรที่เกี่ยวข้อง</h3>
+    <ul>
+        <li><input type="text" data-answer="IANA"> หรือ <input type="text" data-answer="Internet Assigned Numbers Authority"> เป็นคนถือหมายเลข IP ทั้งหมดในโลก</li>
+        <li><input type="text" data-answer="RIRs"> หรือ <input type="text" data-answer="Regional Internet Registries"> องค์กรที่ดูแลการจัดสรร IP ในแต่ละภูมิภาค ซึ่งมีอยู่ <input type="text" data-answer="5"> แห่ง</li>
+    </ul>
+
+    <h3>2.6 อุปกรณ์และการแบ่งเครือข่าย (Subnet)</h3>
+    <ul>
+        <li><input type="text" data-answer="Switch">: เมื่อได้รับ Broadcast มันจะ "ส่งต่อออกทุกพอร์ต" (ยกเว้นพอร์ตที่ส่งมา)</li>
+        <li><input type="text" data-answer="Router">: จะ "ไม่ส่งต่อ" (Stop/Block) ข้อมูลที่เป็น Broadcast ข้ามไปยังฝั่งอื่น</li>
+        <li>เหตุผลที่ต้องทำ Subnet: เพื่อลดขนาดของ <input type="text" data-answer="Broadcast Domain"></li>
+        <li>Router คืออุปกรณ์ที่ช่วยแบ่ง <input type="text" data-answer="Broadcast Domain"> และเป็นตัวหยุดไม่ให้ Broadcast ทะลุข้าม</li>
+        <li>การทำ Subnet คือการยืมบิตจากฝั่ง Host มาทำเป็น Network ทำให้จำนวนเครือข่าย <input type="text" data-answer="Network"> ย่อยเพิ่มขึ้น แต่จำนวน IP ที่แจกให้ <input type="text" data-answer="Host"> ในแต่ละเครือข่ายจะลดลง</li>
+    </ul>
+
+    <h3>2.7-2.8 การคำนวณ Subnet และ VLSM</h3>
+    <div class="indent">
+        <p><strong>กำหนด Network Address คือ 172.16.0.0/16 -> /24 จงหา:</strong></p>
+        <ul>
+            <li>จำนวน Subnet ที่เกิดขึ้นทั้งหมด คือ <input type="text" data-answer="256"> Subnets</li>
+            <li>จำนวน Host ที่ใช้งานได้จริงต่อ 1 Subnet คือ <input type="text" data-answer="254"> Hosts ต่อ Subnet</li>
+        </ul>
+        <p><input type="text" data-answer="VLSM"> หรือ <input type="text" data-answer="Variable Length Subnet Mask"> คือเทคนิคการแบ่ง Subnet ซ้อน Subnet อีกที เพื่อให้สามารถแบ่งขนาดเครือข่ายให้พอดีกับจำนวนเครื่อง</p>
+        
+        <p><strong>แบ่ง IP 172.16.10.0/24 จัดสรรให้กับ 3 แผนก ดังนี้:</strong></p>
+        <ul>
+            <li>Staff (100 Hosts) -> Network: <input type="text" data-answer="172.16.10.0/25"> | Broadcast: <input type="text" data-answer="172.16.10.127"></li>
+            <li>Sales (50 Hosts) -> Network: <input type="text" data-answer="172.16.10.128/26"> | Broadcast: <input type="text" data-answer="172.16.10.191"></li>
+            <li>IT (20 Hosts) -> Network: <input type="text" data-answer="172.16.10.192/27"> | Broadcast: <input type="text" data-answer="172.16.10.223"></li>
+        </ul>
+    </div>
+
+    <h2>3. IPv6</h2>
+    <h3>3.1-3.2 การทำงานของ IPv6</h3>
+    <ul>
+        <li>เทคนิคในการเปลี่ยนผ่านเครือข่าย <input type="text" data-answer="Migration techniques"> มี 3 รูปแบบหลัก ได้แก่</li>
+        <li class="indent">1. <input type="text" data-answer="Dual stack"> (เปิดให้รันทั้ง IPv4 และ IPv6 พร้อมกัน)</li>
+        <li class="indent">2. <input type="text" data-answer="Tunneling"> (ห่อหุ้มแพ็กเก็ต IPv6 ไว้ในแพ็กเก็ต IPv4)</li>
+        <li class="indent">3. <input type="text" data-answer="Translation"> (ใช้ NAT64 ในการแปลที่อยู่)</li>
+        <li>IPv6 มีความยาว <input type="text" data-answer="128"> บิต</li>
+        <li>แบ่งรูปแบบการส่งเป็น 3 ประเภทหลักคือ <input type="text" data-answer="Unicast">, <input type="text" data-answer="Multicast"> และ <input type="text" data-answer="Anycast"></li>
+        <li><input type="text" data-answer="GUA"> หรือ <input type="text" data-answer="Global Unicast Address">: ทำหน้าที่เหมือน Public IP ใน IPv4</li>
+        <li><input type="text" data-answer="LLA"> หรือ <input type="text" data-answer="Link-Local Address">: จำเป็นต้องมีสำหรับทุกอุปกรณ์ในเครือข่ายย่อยเดียวกัน</li>
+    </ul>
+
+    <h3>3.3 โครงสร้าง Subnet IPv6</h3>
+    <ul>
+        <li>IPv6 ถูกออกแบบมาให้รองรับการทำ 
+            <select data-answer="Subnet">
+                <option value="">--เลือก--</option>
+                <option value="Subnet ID">Subnet ID</option>
+                <option value="Subnet">Subnet</option>
+                <option value="Routing Prefix">Routing Prefix</option>
+                <option value="Interface ID">Interface ID</option>
+            </select>
+            ผ่านฟิลด์ 16 บิตที่ชื่อว่า 
+            <select data-answer="Subnet ID">
+                <option value="">--เลือก--</option>
+                <option value="Interface ID">Interface ID</option>
+                <option value="Subnet ID">Subnet ID</option>
+                <option value="Routing Prefix">Routing Prefix</option>
+                <option value="Subnet">Subnet</option>
+            </select>
+            ซึ่งอยู่ระหว่าง 
+            <select data-answer="Routing Prefix">
+                <option value="">--เลือก--</option>
+                <option value="Subnet">Subnet</option>
+                <option value="Interface ID">Interface ID</option>
+                <option value="Routing Prefix">Routing Prefix</option>
+                <option value="Subnet ID">Subnet ID</option>
+            </select>
+            และ 
+            <select data-answer="Interface ID">
+                <option value="">--เลือก--</option>
+                <option value="Routing Prefix">Routing Prefix</option>
+                <option value="Subnet">Subnet</option>
+                <option value="Subnet ID">Subnet ID</option>
+                <option value="Interface ID">Interface ID</option>
+            </select>
+        </li>
+    </ul>
+
+    <h2>4. Transport Layer</h2>
+    <ul>
+        <li><input type="text" data-answer="TCP"> หรือ <input type="text" data-answer="Transmission Control Protocol"> เน้นความน่าเชื่อถือผ่านกระบวนการ <input type="text" data-answer="Three-Way Handshake"></li>
+        <li><input type="text" data-answer="UDP"> หรือ <input type="text" data-answer="User Datagram Protocol"> เน้นความรวดเร็วและ Overhead ต่ำ</li>
+        <li>เมื่อนำ IP Address มารวมกับหมายเลขพอร์ต จะเรียกว่า <input type="text" data-answer="Socket"></li>
+        <li>(0-1,023) <input type="text" data-answer="Well-known"> Port : สงวนไว้สำหรับบริการทั่วไป เช่น HTTP</li>
+        <li>(1,024-49,151) <input type="text" data-answer="Registered"> Ports : พอร์ตที่ลงทะเบียนไว้เฉพาะทาง</li>
+        <li>(49,152-65,535) <input type="text" data-answer="Dynamic"> Ports : สุ่มเลือกให้ไคลเอนต์ใช้ชั่วคราว</li>
+    </ul>
+
+    <h2>5. Application Layer</h2>
+    <ul>
+        <li><input type="text" data-answer="Application"> Layer: อินเทอร์เฟซระหว่างแอปพลิเคชันกับระบบเครือข่าย</li>
+        <li><input type="text" data-answer="Presentation"> Layer: จัดรูปแบบข้อมูล บีบอัด และเข้ารหัส/ถอดรหัส</li>
+        <li><input type="text" data-answer="Session"> Layer: สร้าง รักษา และเริ่มเซสชันการสื่อสาร</li>
+        <li><input type="text" data-answer="Client-Server"> Model: อุปกรณ์ขอบริการคือ Client ให้บริการคือ Server</li>
+        <li><input type="text" data-answer="Peer-to-Peer"> Model: ทำหน้าที่เป็นทั้ง Client และ Server ในเวลาเดียวกัน</li>
+        <li><input type="text" data-answer="DNS"> หรือ <input type="text" data-answer="Domain Name Service">: แปลงชื่อโดเมนเนมให้เป็น IP Address</li>
+        <li><input type="text" data-answer="DHCP"> หรือ <input type="text" data-answer="Dynamic Host Configuration Protocol">: แจกจ่าย IP, Subnet mask อัตโนมัติ</li>
+        <li><input type="text" data-answer="FTP"> หรือ <input type="text" data-answer="File Transfer Protocol">: ดึงหรืออัปโหลดข้อมูล</li>
+        <li><input type="text" data-answer="SMB"> หรือ <input type="text" data-answer="Server Message Block">: โปรโตคอลแชร์ไฟล์แบบไคลเอนต์/เซิร์ฟเวอร์</li>
+    </ul>
+
+    <h2>6. Security</h2>
+    <ul>
+        <li><input type="text" data-answer="Malware">: ซอฟต์แวร์ประสงค์ร้าย แบ่งเป็น</li>
+        <li class="indent"><input type="text" data-answer="Virus"> ต้องอาศัยไฟล์โฮสต์หรือคนช่วยรัน</li>
+        <li class="indent"><input type="text" data-answer="Worm"> แพร่กระจายตัวเองได้โดยอิสระ</li>
+        <li class="indent"><input type="text" data-answer="Trojan Horse"> หลอกว่าเป็นโปรแกรมปกติและต้องพึ่งพาให้ผู้ใช้หลงกล</li>
+        <li>การโจมตีเครือข่าย 3 หมวดหมู่หลัก</li>
+        <li class="indent"><input type="text" data-answer="Reconnaissance">: การสอดแนมเพื่อหาข้อมูล (เช่น ping, whois)</li>
+        <li class="indent"><input type="text" data-answer="Access attacks">: โจมตีเพื่อเข้าถึงข้อมูล (เจาะรหัส, Man-in-the-middle)</li>
+        <li class="indent"><input type="text" data-answer="DoS/DDoS">: โจมตีทำให้ระบบล่ม (Botnet/Zombies รุมโจมตีพร้อมกันคือ DDoS)</li>
+    </ul>
+
+</div>
+
+</body>
+</html>
