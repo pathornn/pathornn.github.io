@@ -6,15 +6,28 @@
     <title>แบบฝึกหัด Computer Network</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f7f6; color: #333; }
-        .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+        .container { max-width: 950px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
         h1 { text-align: center; color: #2c3e50; }
         h2 { color: #34495e; border-bottom: 2px solid #ecf0f1; padding-bottom: 5px; margin-top: 30px; }
         h3 { color: #16a085; font-size: 1.1em; }
-        input[type="text"] { padding: 4px 8px; border: 1px solid #bdc3c7; border-radius: 4px; text-align: center; margin: 0 4px; }
-        select { padding: 4px 8px; border: 1px solid #bdc3c7; border-radius: 4px; cursor: pointer; margin: 0 4px; }
+        input[type="text"], select { 
+            padding: 4px 8px; border: 1px solid #bdc3c7; border-radius: 4px; text-align: center; margin: 0 4px; transition: 0.3s;
+        }
         ul { list-style-type: none; padding-left: 0; }
-        li { margin-bottom: 12px; }
+        li { margin-bottom: 15px; padding: 8px; border-radius: 6px; transition: 0.2s; }
+        li:hover { background-color: #f9fbfb; }
         .indent { padding-left: 20px; }
+        
+        /* สไตล์สำหรับปุ่มและฟีดแบ็ก */
+        .action-area { margin-left: 10px; display: inline-block; }
+        .btn { 
+            padding: 4px 10px; margin-left: 5px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9em; transition: 0.2s; color: white;
+        }
+        .check-btn { background-color: #27ae60; }
+        .check-btn:hover { background-color: #2ecc71; }
+        .reveal-btn { background-color: #f39c12; }
+        .reveal-btn:hover { background-color: #f1c40f; }
+        .feedback { margin-left: 10px; font-weight: bold; font-size: 0.9em; }
     </style>
 </head>
 <body>
@@ -304,6 +317,92 @@
     </ul>
 
 </div>
+
+<script>
+    // สคริปต์สำหรับสร้างปุ่มตรวจและเฉลยอัตโนมัติ
+    document.addEventListener("DOMContentLoaded", function() {
+        const listItems = document.querySelectorAll("li, p"); // ค้นหาบรรทัดที่มีการเติมคำ
+
+        listItems.forEach(item => {
+            const inputs = item.querySelectorAll("input[type='text'], select");
+            
+            if (inputs.length > 0) {
+                // สร้างคอนเทนเนอร์สำหรับปุ่ม
+                const btnContainer = document.createElement("span");
+                btnContainer.className = "action-area";
+
+                // สร้างปุ่มตรวจคำตอบ
+                const checkBtn = document.createElement("button");
+                checkBtn.innerText = "ตรวจคำตอบ";
+                checkBtn.className = "btn check-btn";
+                checkBtn.onclick = () => checkLine(item, inputs);
+
+                // สร้างปุ่มเฉลย
+                const revealBtn = document.createElement("button");
+                revealBtn.innerText = "เฉลย";
+                revealBtn.className = "btn reveal-btn";
+                revealBtn.onclick = () => revealLine(item, inputs);
+
+                // สร้างพื้นที่แสดงผลลัพธ์ (ถูก/ผิด)
+                const feedback = document.createElement("span");
+                feedback.className = "feedback";
+
+                btnContainer.appendChild(checkBtn);
+                btnContainer.appendChild(revealBtn);
+                btnContainer.appendChild(feedback);
+
+                item.appendChild(btnContainer);
+            }
+        });
+    });
+
+    // ฟังก์ชันตรวจคำตอบ
+    function checkLine(container, inputs) {
+        let allCorrect = true;
+        let isAnyEmpty = false;
+
+        inputs.forEach(input => {
+            const userAnswer = input.value.trim().toLowerCase();
+            const correctAnswer = input.getAttribute("data-answer").trim().toLowerCase();
+
+            if (userAnswer === "") {
+                isAnyEmpty = true;
+                input.style.borderColor = "#f39c12"; // สีส้มเตือน
+            } else if (userAnswer === correctAnswer) {
+                input.style.borderColor = "#2ecc71"; // สีเขียวถูก
+                input.style.backgroundColor = "#eafaf1";
+            } else {
+                allCorrect = false;
+                input.style.borderColor = "#e74c3c"; // สีแดงผิด
+                input.style.backgroundColor = "#fdedec";
+            }
+        });
+
+        const feedback = container.querySelector(".feedback");
+        if (isAnyEmpty) {
+            feedback.innerHTML = " ⚠️ เติมให้ครบก่อนนะ";
+            feedback.style.color = "#f39c12";
+        } else if (allCorrect) {
+            feedback.innerHTML = " ✅ ถูกต้อง!";
+            feedback.style.color = "#2ecc71";
+        } else {
+            feedback.innerHTML = " ❌ ลองใหม่อีกนิด";
+            feedback.style.color = "#e74c3c";
+        }
+    }
+
+    // ฟังก์ชันเฉลย
+    function revealLine(container, inputs) {
+        inputs.forEach(input => {
+            input.value = input.getAttribute("data-answer");
+            input.style.borderColor = "#3498db";
+            input.style.backgroundColor = "#ebf5fb";
+        });
+        const feedback = container.querySelector(".feedback");
+        feedback.innerHTML = " 💡 เฉลยแล้ว";
+        feedback.style.color = "#3498db";
+    }
+</script>
 
 </body>
 </html>
