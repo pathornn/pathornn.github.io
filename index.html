@@ -44,14 +44,31 @@
 
     <h3>1.2 การส่งข้อมูล</h3>
     <ul>
-        <li><input type="text" data-answer="เครือข่ายเดียวกัน"> ใช้ MAC address ของปลายทาง</li>
-        <li><input type="text" data-answer="ข้ามเครือข่าย"> เครื่องต้นทางส่งข้อมูลไป <input type="text" data-answer="Default Gateway"> โดยใช้ MAC Address ของ Gateway แทน</li>
+        <li>
+            <select data-answer="เครือข่ายเดียวกัน">
+                <option value="">--เลือก--</option>
+                <option value="เครือข่ายเดียวกัน">เครือข่ายเดียวกัน</option>
+                <option value="ข้ามเครือข่าย">ข้ามเครือข่าย</option>
+            </select> ใช้ MAC address ของปลายทาง
+        </li>
+        <li>
+            <select data-answer="ข้ามเครือข่าย">
+                <option value="">--เลือก--</option>
+                <option value="เครือข่ายเดียวกัน">เครือข่ายเดียวกัน</option>
+                <option value="ข้ามเครือข่าย">ข้ามเครือข่าย</option>
+            </select> เครื่องต้นทางส่งข้อมูลไป <input type="text" data-answer="Default Gateway"> โดยใช้ MAC Address ของ Gateway แทน
+        </li>
     </ul>
 
     <h3>1.3 การทำงานของ ARP</h3>
     <ul>
-        <li><input type="text" data-answer="ARP"> หรือ <input type="text" data-answer="Address Resolution Protocol"> ใช้ใน IPv4 เพื่อหาว่า IP ของ Gateway (R1) มี MAC Address อะไร และใช้สร้าง/อัปเดตตารางจับคู่ที่เรียกว่า <input type="text" data-answer="ARP Table"></li>
-        <li>อุปกรณ์จะทำการส่ง <input type="text" data-answer="ARP Request"> (แบบ 
+        <li>ARP หรือ <input type="text" data-answer="Address Resolution Protocol"> ใช้ใน IPv4 เพื่อหาว่า IP ของ Gateway (R1) มี MAC Address อะไร และใช้สร้าง/อัปเดตตารางจับคู่ที่เรียกว่า <input type="text" data-answer="ARP Table"></li>
+        <li>อุปกรณ์จะทำการส่ง 
+            <select data-answer="ARP Request">
+                <option value="">--เลือก--</option>
+                <option value="ARP Request">ARP Request</option>
+                <option value="ARP Reply">ARP Reply</option>
+            </select> (แบบ 
             <select data-answer="Broadcast">
                 <option value="">--เลือก--</option>
                 <option value="Broadcast">Broadcast</option>
@@ -59,7 +76,12 @@
                 <option value="Unicast">Unicast</option>
             </select>)
         </li>
-        <li>อุปกรณ์ปลายทางที่มี IP ตรงกันจะตอบกลับมาด้วย <input type="text" data-answer="ARP Reply"> (แบบ 
+        <li>อุปกรณ์ปลายทางที่มี IP ตรงกันจะตอบกลับมาด้วย 
+            <select data-answer="ARP Reply">
+                <option value="">--เลือก--</option>
+                <option value="ARP Request">ARP Request</option>
+                <option value="ARP Reply">ARP Reply</option>
+            </select> (แบบ 
             <select data-answer="Unicast">
                 <option value="">--เลือก--</option>
                 <option value="Broadcast">Broadcast</option>
@@ -73,7 +95,7 @@
     <h3>1.4 การทำงานบน IPv6</h3>
     <ul>
         <li><input type="text" data-answer="ICMPv6"> ทำหน้าที่แบบเดียวกับ ARP แต่ใช้สำหรับ IPv6</li>
-        <li>ใช้ข้อความ <input type="text" data-answer="NS"> เรียกว่า <input type="text" data-answer="Neighbor Discovery"> เพื่อหา MAC Address เทียบได้กับ ARP <input type="text" data-answer="Request"> ส่งแบบ 
+        <li>ใช้ข้อความ NS เรียกว่า <input type="text" data-answer="Neighbor Discovery"> เพื่อหา MAC Address เทียบได้กับ ARP <input type="text" data-answer="Request"> ส่งแบบ 
             <select data-answer="Multicast">
                 <option value="">--เลือก--</option>
                 <option value="Broadcast">Broadcast</option>
@@ -81,14 +103,14 @@
                 <option value="Unicast">Unicast</option>
             </select>
         </li>
-        <li>และ <input type="text" data-answer="NA"> เรียกว่า <input type="text" data-answer="Neighbor Advertisement"> เทียบได้กับ ARP <input type="text" data-answer="Reply"> ส่งกลับมา</li>
+        <li>และ NA เรียกว่า <input type="text" data-answer="Neighbor Advertisement"> เทียบได้กับ ARP <input type="text" data-answer="Reply"> ส่งกลับมา</li>
     </ul>
 
     <h2>2. IPv4 และ Subnet</h2>
     <h3>2.1 โครงสร้างและการคำนวณ</h3>
     <ul>
         <li>IPv4 เป็นชุดตัวเลข <input type="text" data-answer="32"> บิต ที่แบ่งออกเป็น 2 ส่วน คือส่วน <input type="text" data-answer="Network"> และส่วน <input type="text" data-answer="Host"></li>
-        <li><input type="text" data-answer="Subnet Mask"> ใช้เป็นตัวกำหนดว่าส่วนไหนคือ <input type="text" data-answer="Network"> และส่วนไหนคือ <input type="text" data-answer="Host"></li>
+        <li><input type="text" data-answer="Subnet Mask"> ใช้เป็นตัวกำหนดว่าส่วนไหนคือ Network และส่วนไหนคือ Host</li>
         <li><input type="text" data-answer="prefix"> ใช้/ไว้ เพื่อบอกว่า network มีกี่ bit</li>
         <li>Prefix ตัวเลขยิ่งมาก (เช่น /30) - Network ยิ่ง 
             <select data-answer="เล็ก">
@@ -191,11 +213,56 @@
     <div class="indent">
         <p><strong>เติม Class และการใช้งานให้ถูกต้อง:</strong></p>
         <ul>
-            <li>0 - 127 Class <input type="text" data-answer="A"> : <input type="text" data-answer="สำหรับองค์กรขนาดใหญ่มาก"></li>
-            <li>128 - 191 Class <input type="text" data-answer="B"> : <input type="text" data-answer="สำหรับองค์กรขนาดกลาง"></li>
-            <li>192 - 223 Class <input type="text" data-answer="C"> : <input type="text" data-answer="สำหรับเครือข่ายขนาดเล็ก"></li>
-            <li>224 - 239 Class <input type="text" data-answer="D"> : <input type="text" data-answer="Multicast"></li>
-            <li>240 - 255 Class <input type="text" data-answer="E"> : <input type="text" data-answer="Experimental"></li>
+            <li>0 - 127 Class <input type="text" data-answer="A"> : 
+                <select data-answer="สำหรับองค์กรขนาดใหญ่มาก">
+                    <option value="">--เลือก--</option>
+                    <option value="สำหรับองค์กรขนาดใหญ่มาก">สำหรับองค์กรขนาดใหญ่มาก</option>
+                    <option value="สำหรับองค์กรขนาดกลาง">สำหรับองค์กรขนาดกลาง</option>
+                    <option value="สำหรับเครือข่ายขนาดเล็ก">สำหรับเครือข่ายขนาดเล็ก</option>
+                    <option value="Multicast">Multicast</option>
+                    <option value="Experimental">Experimental</option>
+                </select>
+            </li>
+            <li>128 - 191 Class <input type="text" data-answer="B"> : 
+                <select data-answer="สำหรับองค์กรขนาดกลาง">
+                    <option value="">--เลือก--</option>
+                    <option value="สำหรับองค์กรขนาดใหญ่มาก">สำหรับองค์กรขนาดใหญ่มาก</option>
+                    <option value="สำหรับองค์กรขนาดกลาง">สำหรับองค์กรขนาดกลาง</option>
+                    <option value="สำหรับเครือข่ายขนาดเล็ก">สำหรับเครือข่ายขนาดเล็ก</option>
+                    <option value="Multicast">Multicast</option>
+                    <option value="Experimental">Experimental</option>
+                </select>
+            </li>
+            <li>192 - 223 Class <input type="text" data-answer="C"> : 
+                <select data-answer="สำหรับเครือข่ายขนาดเล็ก">
+                    <option value="">--เลือก--</option>
+                    <option value="สำหรับองค์กรขนาดใหญ่มาก">สำหรับองค์กรขนาดใหญ่มาก</option>
+                    <option value="สำหรับองค์กรขนาดกลาง">สำหรับองค์กรขนาดกลาง</option>
+                    <option value="สำหรับเครือข่ายขนาดเล็ก">สำหรับเครือข่ายขนาดเล็ก</option>
+                    <option value="Multicast">Multicast</option>
+                    <option value="Experimental">Experimental</option>
+                </select>
+            </li>
+            <li>224 - 239 Class <input type="text" data-answer="D"> : 
+                <select data-answer="Multicast">
+                    <option value="">--เลือก--</option>
+                    <option value="สำหรับองค์กรขนาดใหญ่มาก">สำหรับองค์กรขนาดใหญ่มาก</option>
+                    <option value="สำหรับองค์กรขนาดกลาง">สำหรับองค์กรขนาดกลาง</option>
+                    <option value="สำหรับเครือข่ายขนาดเล็ก">สำหรับเครือข่ายขนาดเล็ก</option>
+                    <option value="Multicast">Multicast</option>
+                    <option value="Experimental">Experimental</option>
+                </select>
+            </li>
+            <li>240 - 255 Class <input type="text" data-answer="E"> : 
+                <select data-answer="Experimental">
+                    <option value="">--เลือก--</option>
+                    <option value="สำหรับองค์กรขนาดใหญ่มาก">สำหรับองค์กรขนาดใหญ่มาก</option>
+                    <option value="สำหรับองค์กรขนาดกลาง">สำหรับองค์กรขนาดกลาง</option>
+                    <option value="สำหรับเครือข่ายขนาดเล็ก">สำหรับเครือข่ายขนาดเล็ก</option>
+                    <option value="Multicast">Multicast</option>
+                    <option value="Experimental">Experimental</option>
+                </select>
+            </li>
         </ul>
     </div>
 
